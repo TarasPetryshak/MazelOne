@@ -1,19 +1,13 @@
 @media screen and (max-width: 1400px) {
-
+    .header__menu_list {
+        width: 50%;
+    }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {}
 
-}
+@media screen and (max-width: 992px) {}
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {}
 
-}
-
-@media screen and (max-width: 768px) {
-
-}
-
-@media screen and (max-width: 544px) {
-    
-}
+@media screen and (max-width: 544px) {}
