@@ -2,6 +2,15 @@
     .header__menu_list {
         width: 50%;
     }
+    .cite__header {
+    	width: 60%;
+	}
+	.about__text {
+    	width: 70%;
+	}
+	.about__article_text {
+    	line-height: 1.9rem;
+	}
 }
 
 @media screen and (max-width: 1200px) {}
