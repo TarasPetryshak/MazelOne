@@ -9,12 +9,15 @@ $(document).ready(function() {
                 items: 1
             },
             767: {
-                items: 2
+                items: 1
             },
             991: {
-                items: 3
+                items: 2
             },
             1200: {
+                items: 3
+            },
+            1400: {
                 items: 4
             }
         }
