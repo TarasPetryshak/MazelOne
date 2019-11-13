@@ -114,3 +114,25 @@ $(document).ready(function() {
 <div class="count">115</div> 
 <div class="count">50</div>
 <div class="count">125</div>*/
+let elementsBlocks = [
+    'video',
+    'slider',
+    'icon',
+    'content',
+    'cover'
+];
+$('.elements__nav_box').click(() => {
+    event.preventDefault();
+    let target = event.target.id;
+    for (let act of elementsBlocks) {
+        if (target == act)
+            for (let act of elementsBlocks) {
+                if (target == act) {
+                    $(`.${target}`).removeClass('elements__block-hidden');
+                } else {
+                    $(`.${act}`).addClass('elements__block-hidden');
+                }
+
+            }
+    }
+})
