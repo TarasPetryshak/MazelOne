@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway&display=swap');
 body {
     width: 100%;
-    /*height: 100vh;*/
     margin: 0;
     padding: 0;
     font-size: 16px;
@@ -10,7 +9,6 @@ body {
 
 .wrapper {
     width: 100%;
-    /*height: 100%;*/
     margin: 0;
     padding: 0;
     font-family: "Raleway", sans-serif;
@@ -38,8 +36,6 @@ body {
     width: 100%;
     height: 14%;
     margin: 0;
-    /* padding: 2%; */
-    box-sizing: border-box;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -71,19 +67,26 @@ body {
     padding: 0;
     z-index: 2;
     opacity: 0;
-}
-.header__menu_button-small {
     display: none;
 }
+
 .drop {
     position: relative;
 }
-.header__menu_button-small {
+
+.header__menu_button-small,
+.header__menu_button-small-1 {
+    position: absolute;
     width: 100%;
     height: 100%;
-    top:0;
+    top: 0;
     left: 0;
+    display: none;
+    z-index: 1000;
+    background: #fff;
+    opacity: 1;
 }
+
 .menu-icon {
     display: none;
     width: 30px;
@@ -93,9 +96,15 @@ body {
     right: 50px;
     font-size: 1.8rem;
 }
+
 .header__menu_button:checked+.header__menu_list {
-    display: flex;
+    transform: rotateY(0);
 }
+
+.header__menu_button-small:checked+.submenu {
+    transform: scaleY(1);
+}
+
 .header__menu_item {
     height: 90%;
     margin: 0;
@@ -123,51 +132,68 @@ body {
 }
 
 .dropmenu,
-.header__menu_list.submenu {
-    display: none;
+.submenu {
     position: absolute;
+    left: 0;
     display: flex;
     flex-direction: column;
     padding: 0;
     opacity: 0.8;
+    transition: all .4s;
 }
+
 .submenu {
-    width: 12vw;
-    height: 40vh;
-    left: 0;
+    width: 15vw;
     top: 90%;
-} 
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.small-device {
+    display: none;
+}
+
 .dropmenu {
     width: 10vw;
-    height: 20vh;
-    top: 0;
+    top: -5px;
     left: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
 }
-.drop {
-    position: relative;
-}
-.dropmenu li.header__menu_item {
-    width: 100%;
-    height: 20%;
-    margin: 0;
-    padding-left: 10px;
-    background: rgba(0, 0, 0, 0.9);
-}
+
+.dropmenu li.header__menu_item,
 .submenu .header__menu_item {
-    width: 170px;
+    width: 100%;
     height: unset;
-    margin-left: 0;
-    padding: 10px 18px;
-    background: rgba(0, 0, 0, 0.7);
+    margin: 0;
+    padding: 14px 15px;
+    background: rgba(0, 0, 0, 0.97);
 }
 
 .drop:hover .submenu {
-    width: 10vw;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    left: 0;
-    top: 100%;
+    transform: scaleY(1);
+}
+
+.drop1 {
+    position: relative;
+}
+
+.drop1 i {
+    margin-left: 8px;
+}
+
+.drop1:hover .dropmenu {
+    transform: scaleX(1);
+}
+
+.dropmenu li.header__menu_item:hover,
+.submenu .header__menu_item:hover {
+    background: rgba(0, 0, 0, .6);
+}
+
+.dropmenu li.header__menu_item:hover>a,
+.submenu .header__menu_item:hover>a {
+    color: #c7a674;
 }
 
 .submenu a {
@@ -267,9 +293,8 @@ body {
 
 .about {
     width: 100%;
-    height: 55vh;
-    margin: 5% 0 0 0;
-    padding: 0;
+    margin: 0;
+    padding: 60px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -280,6 +305,7 @@ body {
 .about__header {
     width: 100%;
     margin: 0;
+    padding: 0;
     text-align: center;
     font-size: 2.2rem;
     font-weight: 100;
@@ -292,10 +318,9 @@ body {
 }
 
 .about__text {
-    width: 40%;
+    width: 60%;
     margin: 0;
-    margin-top: -30px;
-    margin-bottom: 40px;
+    margin: 10px 0 50px;
     text-align: center;
     font-size: 1.4rem;
     color: rgba(0, 0, 0, 0.7);
@@ -306,6 +331,7 @@ body {
 .about__container {
     width: 70%;
     margin: 0;
+    margin-bottom: 40px;
     padding: 0;
     display: flex;
     justify-content: space-between;
@@ -356,9 +382,8 @@ body {
 
 .cite {
     width: 100%;
-    height: 40vh;
     margin: 0;
-    padding: 0;
+    padding: 90px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -379,7 +404,6 @@ body {
 
 .cite__content {
     width: 100%;
-    height: 20%;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -389,26 +413,25 @@ body {
     display: block;
     text-decoration: none;
     color: #fff;
-    width: 10%;
-    height: 65%;
+    width: 150px;
+    height: 40px;
     background: #c7a674;
     font-family: 'Raleway', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 2px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
 }
 
 .team {
     width: 100%;
-    height: 75vh;
     margin: 0;
+    padding: 70px 0;
     background: #fff;
     font-family: 'Open Sans', sans-serif;
     border-top: 1px solid transparent;
-    box-sizing: border-box;
     border-bottom: 1px solid #f1f1f1;
     display: flex;
     flex-direction: column;
@@ -416,9 +439,7 @@ body {
 
 .team__header {
     width: 100%;
-    height: 15%;
     margin: 0;
-    padding-top: 5%;
     box-sizing: border-box;
     text-align: center;
     font-size: 2.4rem;
@@ -435,8 +456,7 @@ body {
 
 div.owl-carousel.team__img-wrapper {
     width: 100%;
-    height: 75%;
-    padding: 0 17% 0 17%;
+    padding: 0 17%;
     box-sizing: border-box;
     margin: 0;
     display: flex;
@@ -475,6 +495,7 @@ div.owl-carousel.team__img-wrapper {
 #carousel1.owl-carousel.team__img-wrapper {
     padding: 0 8% 0 8%;
 }
+
 #carousel1 .img {
     width: 100%;
     height: auto;
@@ -506,8 +527,8 @@ div.owl-carousel.team__img-wrapper {
 
 .skills {
     width: 100%;
-    height: 55vh;
     margin: 0;
+    padding: 90px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -526,9 +547,8 @@ div.owl-carousel.team__img-wrapper {
 .elements__header,
 .form .cite__header {
     width: 100%;
-    height: 15%;
     margin: 0;
-    margin-top: 2%;
+    margin-bottom: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -555,33 +575,25 @@ div.owl-carousel.team__img-wrapper {
 }
 
 .skills__block {
-    width: 32%;
-    height: 50%;
-    margin: 1%;
+    width: 35%;
+    margin-right: 30px;
     padding: 0;
 }
 
 .skills__block_box {
     width: 100%;
-    height: 23%;
     padding: 0;
-    margin-bottom: 1%;
-    /* display: flex;
-    align-content: space-between;
-    flex-wrap: wrap; */
+    margin-bottom: 10px;
     box-sizing: border-box;
-    /*border: 1px solid red;*/
 }
 
 .skills__block_box p {
-    /*transform: scaleY(0);*/
     width: 100%;
-    height: 60%;
     font-family: 'Raleway', sans-serif;
     color: #666;
     width: 100%;
     margin: 0;
-    padding: 0 20px;
+    padding: 10px 20px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -592,25 +604,19 @@ div.owl-carousel.team__img-wrapper {
     display: none;
 }
 
-
-/* .skills__block_box:first-child {
-    height: 49%;
-} */
-
 .skills__block_box:first-child p {
     transform: scaleY(1);
     display: flex;
 }
 
-.skills__block_box:first-child h4 {
-    height: 40%;
+.skills__block_box:last-child {
+    margin-bottom: 0;
 }
 
 .skills__block_box h4 {
     width: 100%;
-    height: 100%;
     margin: 0;
-    padding-left: 20px;
+    padding: 20px;
     box-sizing: border-box;
     text-transform: uppercase;
     font-size: 0.82rem;
@@ -621,10 +627,6 @@ div.owl-carousel.team__img-wrapper {
     border-radius: 2px;
     display: flex;
     align-items: center;
-}
-
-.skills__block_box:first-child {
-    height: 50%;
 }
 
 .skills__block_element {
@@ -682,7 +684,7 @@ div.owl-carousel.team__img-wrapper {
 }
 
 .skills__block_element-inner {
-    width: 55%;
+    /* width: 55%; */
     height: 50%;
     margin-left: 0.5%;
     margin-right: 0.5%;
@@ -693,29 +695,17 @@ div.owl-carousel.team__img-wrapper {
     border-bottom-left-radius: 5px;
 }
 
-.skills__block_element:nth-child(2) .skills__block_element-inner {
-    width: 80%;
-}
-
-.skills__block_element:nth-child(3) .skills__block_element-inner {
-    width: 40%;
-}
-
-.skills__block_element:last-child .skills__block_element-inner {
-    width: 70%;
-}
-
 .background-container2 {
     background-image: url(images/05.jpg);
 }
 
 #carousel2 {
+    padding: 90px 0;
     background: rgba(34, 34, 34, 0.85);
 }
 
 #carousel2 .cite__wrap {
     width: 100%;
-    height: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -756,13 +746,8 @@ div.owl-carousel.team__img-wrapper {
     margin: 0;
 }
 
-#carousel2 .owl-stage {
-    height: 100%;
-}
-
 #carousel2 .owl-item {
     margin-top: 50px;
-    height: 100%;
 }
 
 #carousel2 .owl-nav {
@@ -791,33 +776,32 @@ div.owl-carousel.team__img-wrapper {
     background: transparent;
 }
 
-
-/* #carousel2.owl-carousel .cite .owl-loaded .owl-drag {
-    height: 100vh;
-} */
-
 .process {
     width: 100%;
-    height: 60vh;
     font-family: 'Raleway', sans-serif;
     margin: 0;
     margin-bottom: 10px;
+    padding: 90px 0;
     background: #fff;
-    border: 1px solid transparent;
+    border-top: 1px solid transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 1px 2px #f1f1f1;
+    box-shadow: 0 0 2px 2px #f1f1f1;
+}
+
+.process__header {
+    margin-bottom: 20px;
 }
 
 .process__wrapper {
     width: 80%;
-    height: 70%;
     margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding-bottom: 1%;
     box-sizing: border-box;
     position: relative;
@@ -828,15 +812,13 @@ div.owl-carousel.team__img-wrapper {
     width: 105%;
     border: 1px dashed #f6f6f6;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: -2.5%;
 }
 
 .process__block {
     width: 15%;
-    height: 75%;
     margin: 0;
-    margin-top: -5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -882,6 +864,7 @@ div.owl-carousel.team__img-wrapper {
     width: 160px;
     height: 30px;
     margin: 0;
+    margin-bottom: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -892,7 +875,6 @@ div.owl-carousel.team__img-wrapper {
     letter-spacing: 0.02rem;
     position: relative;
     transition: all 200ms;
-    margin-bottom: -40px;
     transform: scale(0);
 }
 
@@ -913,8 +895,8 @@ div.owl-carousel.team__img-wrapper {
 
 .works {
     width: 100%;
-    height: 55vh;
     margin: 0;
+    padding: 40px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -923,10 +905,13 @@ div.owl-carousel.team__img-wrapper {
     background: #fff;
 }
 
+.works__header {
+    margin-bottom: 30px;
+}
+
 #carousel3 {
     width: 100%;
-    height: 70%;
-    margin-top: 5%;
+    margin: 0;
     position: relative;
     overflow: hidden;
 }
@@ -940,7 +925,8 @@ div.owl-carousel.team__img-wrapper {
     justify-content: space-between;
 }
 
-.owl-nav button {
+#carousel3 button.owl-next,
+#carousel3 button.owl-prev {
     width: 60px;
     height: 60px;
     outline: none;
@@ -955,8 +941,7 @@ div.owl-carousel.team__img-wrapper {
     width: 120%;
     position: absolute;
     top: 0;
-    right: 0;
-    margin-right: -60%;
+    left: 60%;
     z-index: -1;
     opacity: 0;
     transition: all 300ms;
@@ -970,8 +955,7 @@ div.owl-carousel.team__img-wrapper {
     width: 120%;
     position: absolute;
     top: 0;
-    left: 0;
-    margin-left: -60%;
+    right: 60%;
     z-index: -1;
     opacity: 0;
     transition: all 300ms;
@@ -1007,9 +991,7 @@ div.owl-carousel.team__img-wrapper {
 }
 
 .works__block.item {
-    /* .owl-item */
     width: 70%;
-    height: 50%;
     margin: 0 auto;
     padding: 0;
     display: flex;
@@ -1017,13 +999,12 @@ div.owl-carousel.team__img-wrapper {
     align-items: center;
 }
 
-.works__block.item:nth-child(odd) .works__block_element:last-child {
-    order: -1;
+#carousel3.owl-carousel .owl-item:nth-child(even) .works__block_element:last-child {
+    order: -2;
 }
 
 .owl-carousel .owl-item .works__block_element {
     width: 43%;
-    height: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -1043,7 +1024,6 @@ div.owl-carousel.team__img-wrapper {
 
 .works__block_header {
     width: 100%;
-    height: 15%;
     margin: 0;
     margin-bottom: 5%;
     font-weight: 900;
@@ -1054,7 +1034,6 @@ div.owl-carousel.team__img-wrapper {
 
 .works__block_text {
     width: 90%;
-    height: 30%;
     margin: 0;
     text-align: left;
     margin-bottom: 6%;
@@ -1067,7 +1046,6 @@ div.owl-carousel.team__img-wrapper {
 
 .works__block_list {
     width: 100%;
-    height: 30%;
     margin: 0;
     margin-bottom: 6%;
     font-family: 'Open Sans', sans-serif;
@@ -1081,10 +1059,13 @@ div.owl-carousel.team__img-wrapper {
     width: 100%;
     height: 40px;
     margin-bottom: 6%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .works__block_link a {
-    width: 25%;
+    width: 110px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -1105,20 +1086,19 @@ div.owl-carousel.team__img-wrapper {
 
 .works__block_link a i {
     margin: 0;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .portfolio {
     width: 100%;
-    height: 110vh;
     margin: 0;
+    padding: 0;
 }
 
 .portfolio__header {
     width: 100%;
-    height: 25%;
     margin: 0;
-    margin-top: 50px;
+    padding: 0;
     background: #f1f1f1;
     display: flex;
     justify-content: center;
@@ -1127,10 +1107,15 @@ div.owl-carousel.team__img-wrapper {
     flex-wrap: wrap;
 }
 
+.portfolio__header h2 {
+    margin: 80px 0 30px;
+    padding: 0;
+}
+
 .portfolio__header .menu {
     width: 40%;
     text-align: center;
-    margin: 25px;
+    margin-bottom: 25px;
 }
 
 .portfolio__header .menu a {
@@ -1146,7 +1131,6 @@ div.owl-carousel.team__img-wrapper {
 
 .portfolio__img-container {
     width: 100%;
-    height: 58%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -1155,7 +1139,6 @@ div.owl-carousel.team__img-wrapper {
 
 .portfolio__img-block {
     width: 25%;
-    height: 50%;
     margin: 0;
     padding: 0;
     position: relative;
@@ -1242,8 +1225,8 @@ div.owl-carousel.team__img-wrapper {
 
 .portfolio__footer {
     width: 100%;
-    height: 17%;
     margin: 0;
+    padding: 40px 0;
     background: #333;
     color: #fff;
     font-family: 'Raleway', sans-serif;
@@ -1275,7 +1258,7 @@ div.owl-carousel.team__img-wrapper {
 
 .service {
     width: 100%;
-    height: 87vh;
+    padding: 70px 0;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
@@ -1284,16 +1267,19 @@ div.owl-carousel.team__img-wrapper {
 
 .service__header {
     width: 100%;
-    height: 20%;
     margin: 0;
-    padding-top: 5%;
-    margin-bottom: 3%;
-    box-sizing: border-box;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+.service__header h2 {
+    margin-bottom: 10px;
 }
 
 .service__header p {
     width: 100%;
-    margin: 20px 0;
+    margin: 0;
+    padding: 0;
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
     color: #666;
@@ -1303,17 +1289,14 @@ div.owl-carousel.team__img-wrapper {
 
 .service__content {
     width: 100%;
-    height: 80%;
     margin: 0;
-    padding-bottom: 3%;
-    box-sizing: border-box;
+    padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .service__block {
-    width: 32%;
-    height: 95%;
     margin: 0;
     padding: 0;
 }
@@ -1323,29 +1306,31 @@ div.owl-carousel.team__img-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 35%;
+    width: 38%;
 }
 
 .service__block:nth-child(2) {
     text-align: center;
-    width: 20%;
+    width: 23%;
+    margin: 0 20px;
 }
 
 .service__block:last-child {
     text-align: left;
-    width: 35%;
+    width: 38%;
 }
 
 .service__block_item {
-    width: 60%;
+    width: 70%;
     height: 25%;
     margin: 0;
     display: flex;
-
 }
 
 .content-wrapper {
     width: 75%;
+    margin: 0;
+    padding: 0;
 }
 
 .content-wrapper h4 {
@@ -1393,16 +1378,16 @@ div.owl-carousel.team__img-wrapper {
 }
 
 .awards {
+    padding: 90px 0;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 0;
 }
 
 .awards__block {
     width: 17%;
-    height: 80%;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -1430,10 +1415,10 @@ div.owl-carousel.team__img-wrapper {
 
 .price {
     width: 100%;
-    height: 80vh;
     margin: 0;
+    padding: 70px 0;
     background: #fff;
-    border: 1px solid transparent;
+    border-top: 1px solid transparent;
 }
 
 .price__header {
@@ -1446,13 +1431,13 @@ div.owl-carousel.team__img-wrapper {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
 .price__block {
-    width: 19%;
-    height: 75%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1472,12 +1457,14 @@ div.owl-carousel.team__img-wrapper {
     text-transform: uppercase;
     color: #333;
     letter-spacing: 0.1rem;
+    margin: 40px 0 20px;
 }
 
 .price__block_definition {
     font-size: 4rem;
     font-weight: bold;
     color: #333;
+    margin: 0;
 }
 
 .price__block_definition .sup {
@@ -1495,7 +1482,7 @@ div.owl-carousel.team__img-wrapper {
 .price__list {
     list-style: none;
     color: #666;
-    margin: 0;
+    margin: 40px 0;
     padding: 0;
     font-size: 0.82rem;
     letter-spacing: 0.07rem;
@@ -1518,8 +1505,7 @@ div.owl-carousel.team__img-wrapper {
     justify-content: center;
     align-items: center;
     margin: 0;
-    margin-top: 20px;
-    margin-bottom: 8%;
+    margin-bottom: 40px;
     width: 120px;
     height: 38px;
     background: #333;
@@ -1597,30 +1583,31 @@ div.owl-carousel.team__img-wrapper {
 
 .clients {
     width: 100%;
-    height: 40vh;
     margin: 0;
+    padding: 70px 0;
     background: #fff;
-    border-top: 1px solid transparent;
-    box-shadow: 0 0 1px 2px #f1f1f1;
+    border-bottom: 5px solid transparent;
 }
+
 .clients__header {
-    margin-bottom: 2%;
+    margin-bottom: 50px;
 }
+
 #carousel4 {
     width: 60%;
-    height: 85%;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 #carousel4 .owl-item.active {
     height: 100%;
 }
+
 #carousel4 .item {
     width: 70%;
     height: 100%;
-    
 }
 
 #carousel4 a {
@@ -1639,6 +1626,7 @@ div.owl-carousel.team__img-wrapper {
 .elements {
     width: 100%;
     padding: 50px 0;
+    margin-top: 10px;
     background: #fff;
     display: flex;
     justify-content: center;
@@ -1692,7 +1680,7 @@ div.owl-carousel.team__img-wrapper {
 }
 
 .elements__container {
-    width: 55%;
+    width: 80%;
     margin: 0;
 }
 
@@ -1766,28 +1754,26 @@ div.owl-carousel.team__img-wrapper {
 
 .content {
     margin: 0;
-    margin-top: -4%;
     display: flex;
     flex-wrap: wrap;
-    align-content: space-between;
     justify-content: space-between;
 }
 
 .content__box {
     width: 32%;
-    height: 48%;
     margin: 0;
     padding: 20px;
+    margin-bottom: 20px;
     box-sizing: border-box;
     background: #f1f1f1;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     border-radius: 5px;
 }
 
-.content .icon-wrapper {
+.content .icon-wrapper,
+.content .icon-wrapper-dark {
     width: 70px;
     height: 70px;
     margin: 0;
@@ -1799,6 +1785,11 @@ div.owl-carousel.team__img-wrapper {
     align-items: center;
     color: #fff;
     font-size: 1.1rem;
+    transition: all .4s;
+}
+
+.content .icon-wrapper-dark {
+    background: #666;
 }
 
 .content__box_header {
@@ -1807,6 +1798,14 @@ div.owl-carousel.team__img-wrapper {
     letter-spacing: 0.09rem;
     font-size: 0.87rem;
     font-weight: 900;
+}
+
+.content__box:hover>.icon-wrapper {
+    background: #666;
+}
+
+.content__box:hover>.icon-wrapper-dark {
+    background: #c7a674;
 }
 
 .content__box_text {
@@ -1819,24 +1818,24 @@ div.owl-carousel.team__img-wrapper {
 
 .cover {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 0;
 }
 
-.cover__box {
+.cover__block {
     width: 32%;
-    height: 100%;
     padding: 0;
 }
 
-.cover__box img {
+.cover__block img {
     width: 100%;
     object-fit: cover;
     margin: 0;
     padding: 0;
 }
 
-.cover__text-wrapper {
+.cover__block .text-wrapper {
     width: 100%;
     margin: 0;
     margin-top: -2%;
@@ -1846,7 +1845,7 @@ div.owl-carousel.team__img-wrapper {
     text-align: center;
 }
 
-.cover__text-wrapper h4 {
+.cover__block .text-wrapper h4 {
     font-family: 'Raleway', sans-serif;
     color: #333;
     letter-spacing: 0.09rem;
@@ -1855,7 +1854,7 @@ div.owl-carousel.team__img-wrapper {
     text-align: center;
 }
 
-.cover__text-wrapper p {
+.cover__block .text-wrapper p {
     font-family: 'Open Sans', sans-serif;
     color: #666;
     line-height: 1.4rem;
@@ -1863,7 +1862,7 @@ div.owl-carousel.team__img-wrapper {
     text-align: center;
 }
 
-.cover__text-wrapper a {
+.cover__block .text-wrapper a {
     margin: 0 auto;
     text-decoration: none;
     color: #666;
@@ -1873,7 +1872,7 @@ div.owl-carousel.team__img-wrapper {
     text-align: center;
 }
 
-.cover__text-wrapper a i {
+.cover__block .text-wrapper a i {
     font-size: 0.5rem;
     margin-left: 5px;
     vertical-align: middle;
@@ -1884,7 +1883,7 @@ div.owl-carousel.team__img-wrapper {
 }
 
 .form {
-    padding: 180px 0;
+    padding: 120px 0;
     display: flex;
     background: rgba(0, 0, 0, .6);
 }
@@ -1892,7 +1891,7 @@ div.owl-carousel.team__img-wrapper {
 .form .cite__header {
     width: 100%;
     color: #fff;
-    margin-bottom: 50px;
+    margin: 50px 0;
 }
 
 form {

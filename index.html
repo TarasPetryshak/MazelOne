@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="media.css">
     <link rel="stylesheet" href="OwlCarousel2-2.3.4/assets/owl.carousel.min.css">
     <!-- <link rel="stylesheet" href="OwlCarousel2-2.3.4/assets/owl.theme.default.min.css"> -->
+
     <title>Mazel one</title>
 </head>
 
@@ -27,7 +28,9 @@
                     <input type="checkbox" class="header__menu_button">
                     <ul class="header__menu_list">
                         <li class="header__menu_item"><a href="#">home</a></li>
-                        <li class="header__menu_item drop"><a href="#">demos<i class="fas fa-chevron-down"></i></a>
+                        <li class="header__menu_item drop">
+                            <a href="#">demos<i class="fas fa-chevron-down large-device"></i>
+                            <i class="fas fa-chevron-right small-device"></i></a>
                             <input type="checkbox" class="header__menu_button-small">
                             <ul class="header__menu_list submenu">
                                 <li class="header__menu_item"><a href="#">Home-Main</a></li>
@@ -42,8 +45,11 @@
                                 <li class="header__menu_item"><a href="#">Home-Bg Slideshow</a></li>
                                 <li class="header__menu_item"><a href="#">Home-Coming Soon Pages</a></li>
                                 <li class="header__menu_item drop1">
-                                    <a href="#">Sub Dropdown</a>
-                                    <input type="checkbox" class="header__menu_button-small">
+                                    <a href="#">Sub Dropdown
+                                        <i class="fas fa-chevron-right large-device"></i>
+                                        <i class="fas fa-chevron-down small-device"></i>
+                                    </a>
+                                    <input type="checkbox" class="header__menu_button-small-1">
                                     <ul class="header__menu_list dropmenu">
                                         <li class="header__menu_item"><a href="#">Sub Menu 1</a></li>
                                         <li class="header__menu_item"><a href="#">Sub Menu 2</a></li>
@@ -274,10 +280,10 @@
                         </div>
                     </div>
                     <div class="skills__block">
-                        <div class="skills__block_element">
+                        <div class="skills__block_element" id="counter-1">
                             <div class="skills__block_desc">
-                                <h2>DESIGN</h2>
-                                <p>55%</p>
+                                <h2 id="btn">DESIGN</h2>
+                                <p class="count">55%</p>
                             </div>
                             <div class="skills__block_element-outer">
                                 <div class="skills__block_element-inner"></div>
@@ -286,7 +292,7 @@
                         <div class="skills__block_element">
                             <div class="skills__block_desc">
                                 <h2>DEVELOPMENT</h2>
-                                <p>80%</p>
+                                <p class="count">80%</p>
                             </div>
                             <div class="skills__block_element-outer">
                                 <div class="skills__block_element-inner"></div>
@@ -295,7 +301,7 @@
                         <div class="skills__block_element">
                             <div class="skills__block_desc">
                                 <h2>PHOTOGRAPHY</h2>
-                                <p>40%</p>
+                                <p class="count">40%</p>
                             </div>
                             <div class="skills__block_element-outer">
                                 <div class="skills__block_element-inner"></div>
@@ -304,7 +310,7 @@
                         <div class="skills__block_element">
                             <div class="skills__block_desc">
                                 <h2>BRANDING</h2>
-                                <p>70%</p>
+                                <p class="count">70%</p>
                             </div>
                             <div class="skills__block_element-outer">
                                 <div class="skills__block_element-inner"></div>
@@ -662,26 +668,26 @@
             <section class="awards cite">
                 <div class="awards__block">
                     <p>
-                        <i class="fas fa-trophy"></i>
-                        <span>103</span>awards
+                        <i class="fas fa-trophy" id="counter-2"></i>
+                        <span class="count-2">103</span>awards
                     </p>
                 </div>
                 <div class="awards__block">
                     <p>
                         <i class="far fa-heart"></i>
-                        <span>256</span>client
+                        <span class="count-2">256</span>client
                     </p>
                 </div>
                 <div class="awards__block">
                     <p>
                         <i class="fas fa-suitcase"></i>
-                        <span>148</span>projects
+                        <span class="count-2">148</span>projects
                     </p>
                 </div>
                 <div class="awards__block">
                     <p>
                         <i class="far fa-lightbulb"></i>
-                        <span>23</span>team
+                        <span class="count-2">23</span>team
                     </p>
                 </div>
             </section>
@@ -793,10 +799,10 @@
                     </div>
                 </div>
                 <div class="elements__container">
-                    <div class="elements__block video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/JJ63st1mnrk" frameborder="0"
+                    <div class="elements__block video elements__block-hidden">
+                        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/JJ63st1mnrk" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                            allowfullscreen></iframe> -->
                     </div>
                     <div class="elements__block slider elements__block-hidden">
                         <div class="owl-carousel" id="carousel5">
@@ -867,7 +873,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="elements__block content elements__block-hidden">
+                    <div class="elements__block content">
                         <div class="content__box">
                             <div class="icon-wrapper">
                                 <i class="fas fa-spinner"></i>
@@ -888,99 +894,67 @@
                             <div class="icon-wrapper">
                                 <i class="fas fa-anchor"></i>
                             </div>
-                            <div class="content__box">
-                                <div class="icon-wrapper-dark">
-                                    <i class="fas fa-globe"></i>
-                                </div>
-                                <h4 class="content__box_header">GRAPHIC DESIGN</h4>
-                                <p class="content__box_text">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum dolorem.</p>
+                            <h4 class="content__box_header">APP DEVELOPMENT</h4>
+                            <p class="content__box_text">Quis autem vel eum iure reprehenderit qui in ea voluptate
+                                velit esse quam nihil molestiae consequatur vel illum dolorem.</p>
+                        </div>
+                        <div class="content__box">
+                            <div class="icon-wrapper-dark">
+                                <i class="fas fa-globe"></i>
                             </div>
-                            <div class="content__box">
-                                <div class="icon-wrapper-dark">
-                                    <i class="fas fa-cog"></i>
-                                </div>
-                                <h4 class="content__box_header">PHOTOGRAPHY</h4>
-                                <p class="content__box_text">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum dolorem.</p>
+                            <h4 class="content__box_header">GRAPHIC DESIGN</h4>
+                            <p class="content__box_text">Quis autem vel eum iure reprehenderit qui in ea voluptate
+                                velit esse quam nihil molestiae consequatur vel illum dolorem.</p>
+                        </div>
+                        <div class="content__box">
+                            <div class="icon-wrapper-dark">
+                                <i class="fas fa-cog"></i>
                             </div>
-                            <div class="content__box">
-                                <div class="icon-wrapper-dark">
-                                    <i class="far fa-paper-plane"></i>
-                                </div>
-                                <h4 class="content__box_header">PHOTO EDITING</h4>
-                                <p class="content__box_text">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum dolorem.</p>
+                            <h4 class="content__box_header">PHOTOGRAPHY</h4>
+                            <p class="content__box_text">Quis autem vel eum iure reprehenderit qui in ea voluptate
+                                velit esse quam nihil molestiae consequatur vel illum dolorem.</p>
+                        </div>
+                        <div class="content__box">
+                            <div class="icon-wrapper-dark">
+                                <i class="far fa-paper-plane"></i>
                             </div>
                             <h4 class="content__box_header">PHOTO EDITING</h4>
-                            <p class="content__box_text">Quis autem vel eum iure reprehenderit qui in ea voluptate velit
-                                esse quam nihil molestiae consequatur vel illum dolorem.</p>
-                        </div>
-                        <div class="elements__block cover">
-                            <div class="cover__block">
-                                <div class="cover__block_img-wrapper">
-                                    <img src="images/portfolio/09.jpg" alt="photo">
-                                </div>
-                                <div class="text-wrapper">
-                                    <h4>RESPONSIVE DESIGN</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut dignissimos ea est, impedit incidunt, laboriosam maxime</p>
-                                    <a href="#">READ MORE 
-                                        <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="cover__block">
-                                <div class="cover__block_img-wrapper">
-                                    <img src="images/portfolio/06.jpg" alt="photo">
-                                </div>
-                                <div class="text-wrapper">
-                                    <h4>APP DEVELOPMENT</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut dignissimos ea est, impedit incidunt, laboriosam maxime</p>
-                                    <a href="#">READ MORE 
-                                        <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="cover__block">
-                                <div class="cover__block_img-wrapper">
-                                    <img src="images/portfolio/05.jpg" alt="photo">
-                                </div>
-                                <div class="text-wrapper">
-                                    <h4>PHOTOGRAPHY</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut dignissimos ea est, impedit incidunt, laboriosam maxime</p>
-                                    <a href="#">READ MORE 
-                                        <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
+                            <p class="content__box_text">Quis autem vel eum iure reprehenderit qui in ea voluptate
+                                velit esse quam nihil molestiae consequatur vel illum dolorem.</p>
                         </div>
                     </div>
                     <div class="elements__block cover elements__block-hidden">
-                        <div class="cover__box">
+                        <div class="cover__block">
                             <img src="images/portfolio/09.jpg" alt="photo">
-                            <div class="cover__text-wrapper">
+                            <div class="text-wrapper">
                                 <h4>RESPONSIVE DESIGN</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Ab aut dignissimos ea est, impedit incidunt, laboriosam maxime</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut dignissimos ea
+                                    est, impedit incidunt, laboriosam maxime</p>
                                 <a href="#">READ MORE
-                                    <i class="fas fa-chevron-right"></i></a>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
                             </div>
                         </div>
-                        <div class="cover__box">
+                        <div class="cover__block">
                             <img src="images/portfolio/06.jpg" alt="photo">
-                            <div class="cover__text-wrapper">
+                            <div class="text-wrapper">
                                 <h4>APP DEVELOPMENT</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Ab aut dignissimos ea est, impedit incidunt, laboriosam maxime</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut dignissimos ea
+                                    est, impedit incidunt, laboriosam maxime</p>
                                 <a href="#">READ MORE
-                                    <i class="fas fa-chevron-right"></i></a>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
                             </div>
                         </div>
-                        <div class="cover__box">
+                        <div class="cover__block">
                             <img src="images/portfolio/05.jpg" alt="photo">
-                            <div class="cover__text-wrapper">
+                            <div class="text-wrapper">
                                 <h4>PHOTOGRAPHY</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Ab aut dignissimos ea est, impedit incidunt, laboriosam maxime</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut dignissimos ea
+                                    est, impedit incidunt, laboriosam maxime</p>
                                 <a href="#">READ MORE
-                                    <i class="fas fa-chevron-right"></i></a>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1001,11 +975,11 @@
                     </div>
                 </form>
             </section>
-            <section class="card">
+           <!--  <section class="card">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58578.57972180904!2d87.9169030680485!3d23.41854218247381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f9b488a82e91e1%3A0xfaf2d8f95c2b537f!2sDana%20Bank%20-%20Bhatar%20Branch!5e0!3m2!1sru!2sua!4v1573664439115!5m2!1sru!2sua"
                     height="350" frameborder="0" style="border:0;" allowfullscreen="allowfullscreen"></iframe>
-            </section>
+            </section> -->
         </div>
     </main>
     <footer>
