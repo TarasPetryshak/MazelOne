@@ -299,6 +299,9 @@
     }
     
     @media screen and (max-width: 544px) {
+        .header__menu {
+            margin-bottom: 20px;
+        }
         .header__menu_list {
             width: 40%;
         }
@@ -377,6 +380,9 @@
         }
         .price__block {
             width: 90%;
+        }
+        .elements__header {
+            flex-wrap: wrap;
         }
         .elements__container {
             width: 90%;
