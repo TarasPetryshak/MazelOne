@@ -84,7 +84,7 @@ body {
     display: none;
     z-index: 1000;
     background: #fff;
-    opacity: 1;
+    opacity: 0;
 }
 
 .menu-icon {
@@ -103,6 +103,10 @@ body {
 
 .header__menu_button-small:checked+.submenu {
     transform: scaleY(1);
+}
+
+.header__menu_button-small-1:checked+.dropmenu {
+    transform: scaleX(1);
 }
 
 .header__menu_item {
@@ -532,7 +536,6 @@ div.owl-carousel.team__img-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: space-between;
     font-family: 'Raleway', sans-serif;
     background: #fff;
 }
@@ -684,7 +687,6 @@ div.owl-carousel.team__img-wrapper {
 }
 
 .skills__block_element-inner {
-    /* width: 55%; */
     height: 50%;
     margin-left: 0.5%;
     margin-right: 0.5%;
@@ -900,7 +902,6 @@ div.owl-carousel.team__img-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: space-between;
     font-family: 'Raleway', sans-serif;
     background: #fff;
 }
@@ -1306,7 +1307,7 @@ div.owl-carousel.team__img-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 38%;
+    width: 36%;
 }
 
 .service__block:nth-child(2) {
@@ -1317,12 +1318,12 @@ div.owl-carousel.team__img-wrapper {
 
 .service__block:last-child {
     text-align: left;
-    width: 38%;
+    width: 36%;
 }
 
 .service__block_item {
     width: 70%;
-    height: 25%;
+    height: 23%;
     margin: 0;
     display: flex;
 }
@@ -1696,7 +1697,7 @@ div.owl-carousel.team__img-wrapper {
 #carousel5.owl-carousel .owl-item img {
     width: 80%;
     margin: 0 auto;
-    height: cover;
+    height: auto;
     object-fit: cover;
 }
 
@@ -1912,7 +1913,7 @@ form {
     height: 24%;
     padding: 10px;
     box-sizing: border-box;
-    font-style: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     letter-spacing: 0.06rem;
     font-size: 0.8rem;
 }
@@ -1922,7 +1923,7 @@ form {
     padding: 10px;
     box-sizing: border-box;
     resize: none;
-    font-style: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     letter-spacing: 0.06rem;
     font-size: 0.85rem;
 }
@@ -1985,7 +1986,7 @@ form {
     background: #f6f6f6;
 }
 
-.footer__block h4 {
+.address__header {
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     color: #333;
